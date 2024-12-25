@@ -98,20 +98,9 @@ def process_reactions(reactions):
 def combine_post_view_data(posts, views):
     print("Posts DataFrame columns:", posts.columns)
     print("Views DataFrame columns:", views.columns)
-    # Убедитесь, что используете существующие столбцы
-    if 'channel_name' not in posts.columns:
-        print("Warning: 'channel_name' column not found in posts DataFrame.")
-        # Обработка отсутствия столбца
-        # Например, вы можете использовать 'channel_id' или другое значение по умолчанию
-        posts['channel_name'] = 'Unknown'  # или другое значение по умолчанию
 
-    if 'datetime' not in posts.columns:
-        print("Warning: 'datetime' column not found in posts DataFrame.")
-        # Обработка отсутствия столбца
-        posts['datetime'] = pd.NaT  # или другое значение по умолчанию
-
-    post_view = views[["id","post_id","timestamp","views"]].merge(
-        posts[["id","channel_id","message_id","text","date"]].rename(columns={'id': 'post_id', 'date': 'post_datetime'}),
+    post_view = views[['id', 'post_id', 'datetime', 'view_cnt', 'date', 'view_change']].merge(
+        posts[['id', 'channel_id', 'message_id', 'text', 'date']].rename(columns={'id': 'post_id', 'date': 'post_datetime'}),
         on='post_id'
     )[['channel_id', 'post_id', 'post_datetime', 'datetime', 'view_cnt', 'view_change']]
     post_view = post_view.sort_values(by=['channel_id', 'post_id', 'datetime']).reset_index(drop=True)
