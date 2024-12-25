@@ -135,6 +135,6 @@ def combine_post_view_reaction_data(post_view, reacts):
     gr_pvr = group_post_view.merge(group_reacts, on=['post_id', 'datetime_format'], how='left').drop_duplicates()
     gr_pvr = gr_pvr[~gr_pvr.react_cnt.isnull()].copy()
     gr_pvr['react_cnt_sum'] = gr_pvr.groupby('post_id')['react_cnt'].transform('sum')
-    gr_pvr['idx_active'] = round(gr_pvr.react_cnt_sum / gr_pvr.current_views * 100, 2)
+    gr_pvr['idx_active'] = round(gr_pvr.react_cnt_sum / gr_pvr.view_cnt * 100, 2)
     return gr_pvr
 
