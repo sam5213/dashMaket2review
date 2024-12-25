@@ -126,6 +126,8 @@ def combine_post_view_data(posts, views):
     return post_view.sort_values(by=['channel_id', 'post_datetime'], ascending=False)
 
 def combine_post_view_reaction_data(post_view, reacts):
+    print("Reacts DataFrame columns:", reacts.columns)
+    print("Post_view DataFrame columns:", post_view.columns)
     group_reacts = reacts.groupby(['post_id', 'reaction_type'])[['datetime', 'react_cnt']].last().reset_index()
     group_post_view = post_view.groupby(['channel_name', 'post_datetime', 'post_id', 'current_views'])[['datetime']].last().reset_index()
     group_reacts['datetime_format'] = pd.to_datetime(group_reacts.datetime).dt.strftime('%Y-%m-%d %H:%M:%S')
