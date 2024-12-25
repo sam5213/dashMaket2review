@@ -60,6 +60,8 @@ def process_posts(posts, channels):
 
     if 'datetime' in posts.columns:
         posts['date'] = pd.to_datetime(posts['datetime']).dt.date
+        posts['time'] = posts.datetime.str[10:]
+        posts['hour'] = pd.to_datetime(posts.datetime).dt.hour
     else:
         print("Warning: 'datetime' column not found in posts DataFrame.")
         print("Posts DataFrame columns:", posts.columns)
@@ -67,12 +69,16 @@ def process_posts(posts, channels):
         # Например, вы можете использовать 'date' или другое значение по умолчанию
         if 'date' in posts.columns:
             posts['date'] = pd.to_datetime(posts['date']).dt.date
+            posts['time'] = posts.date.str[10:]
+            posts['hour'] = pd.to_datetime(posts.date).dt.hour
         else:
             posts['date'] = None  # Или какое-то значение по умолчанию
+            posts['time'] = None
+            posts['hour'] = None
 
-    posts['time'] = posts.datetime.str[10:]
+    
     posts['cnt'] = posts.groupby(['channel_id', 'date'])['message_id'].transform('count')
-    posts['hour'] = pd.to_datetime(posts.datetime).dt.hour
+    
 
     return posts[~posts.text.isnull() & (posts.text != 'Нет текста')].copy()
 
