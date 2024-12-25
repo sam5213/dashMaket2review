@@ -109,8 +109,8 @@ def combine_post_view_data(posts, views):
         # Обработка отсутствия столбца
         posts['datetime'] = pd.NaT  # или другое значение по умолчанию
 
-    post_view = views[['post_id', 'view_cnt', 'view_change', 'datetime']].merge(
-        posts[['id', 'channel_name', 'date', 'datetime']].rename(columns={'id': 'post_id', 'datetime': 'post_datetime'}),
+    post_view = views[["id","post_id","timestamp","views"]].merge(
+        posts[["id","channel_id","message_id","text","date"]].rename(columns={'id': 'post_id', 'date': 'post_datetime'}),
         on='post_id'
     )[['channel_name', 'post_id', 'post_datetime', 'datetime', 'view_cnt', 'view_change']]
     post_view = post_view.sort_values(by=['channel_name', 'post_id', 'datetime']).reset_index(drop=True)
