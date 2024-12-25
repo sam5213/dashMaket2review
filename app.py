@@ -12,7 +12,14 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server  # Expose the server variable for Gunicorn
 
 # Load and process data
-channels, posts, reactions, subscribers, views = load_data()
+data, file_list = load_data()
+if data:
+    channels = data[file_list[0]]
+    posts = data[file_list[1]]
+    reactions = data[file_list[2]]
+    subscribers = data[file_list[3]]
+    views = data[file_list[4]]
+
 processed_data = process_data(channels, posts, reactions, subscribers, views)
 
 # Create the app layout

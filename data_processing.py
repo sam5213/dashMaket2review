@@ -7,15 +7,24 @@ def load_data():
     folder_path = os.getcwd()
     file_list = sorted([f for f in os.listdir(folder_path) if f.endswith('.csv')])
     
-    channels = pd.read_csv(os.path.join(folder_path, file_list[0]))
-    posts = pd.read_csv(os.path.join(folder_path, file_list[1]))
-    reactions = pd.read_csv(os.path.join(folder_path, file_list[2]))
-    subscribers = pd.read_csv(os.path.join(folder_path, file_list[3]))
-    views = pd.read_csv(os.path.join(folder_path, file_list[4]))
-    print(posts.head())  # Вывод первых нескольких строк
-    print(posts.columns)  # Вывод названий столбцов
+    # Проверка наличия достаточного количества файлов
+    if len(file_list) < 5:
+        raise ValueError("Недостаточно CSV файлов в папке. Ожидалось 5, найдено: {}".format(len(file_list)))
 
-    return channels, posts, reactions, subscribers, views
+    dataframes = {}
+    
+    for file_name in file_list:
+        try:
+            df = pd.read_csv(os.path.join(folder_path, file_name))
+            if df.empty:
+                raise ValueError(f"Файл '{file_name}' пуст.")
+            dataframes[file_name] = df
+        except Exception as e:
+            print(f"Ошибка при загрузке файла '{file_name}': {e}")
+            return None  # Или обработайте ошибку другим способом
+
+    # Возвращаем загруженные DataFrame по именам файлов
+    return dataframes, file_list
 
 def process_data(channels, posts, reactions, subscribers, views):
     # Process posts
