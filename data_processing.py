@@ -97,6 +97,7 @@ def process_reactions(reactions):
 
 def combine_post_view_data(posts, views):
     print("Posts DataFrame columns:", posts.columns)
+    print("Views DataFrame columns:", posts.views)
     # Убедитесь, что используете существующие столбцы
     if 'channel_name' not in posts.columns:
         print("Warning: 'channel_name' column not found in posts DataFrame.")
@@ -112,8 +113,8 @@ def combine_post_view_data(posts, views):
     post_view = views[["id","post_id","timestamp","views"]].merge(
         posts[["id","channel_id","message_id","text","date"]].rename(columns={'id': 'post_id', 'date': 'post_datetime'}),
         on='post_id'
-    )[['channel_name', 'post_id', 'post_datetime', 'datetime', 'view_cnt', 'view_change']]
-    post_view = post_view.sort_values(by=['channel_name', 'post_id', 'datetime']).reset_index(drop=True)
+    )[['channel_id', 'post_id', 'post_datetime', 'datetime', 'view_cnt', 'view_change']]
+    post_view = post_view.sort_values(by=['channel_id', 'post_id', 'datetime']).reset_index(drop=True)
     post_view['hours_diff'] = (pd.to_datetime(post_view.datetime) - pd.to_datetime(post_view.post_datetime)).dt.total_seconds() / 3600
     post_view['days_diff'] = post_view['hours_diff'] / 24
     post_view['hours_diff'] = post_view['hours_diff'].apply(lambda x: math.ceil(x))
@@ -121,7 +122,7 @@ def combine_post_view_data(posts, views):
     post_view['hours_group'] = pd.cut(post_view['hours_diff'], bins=list(range(0, 74)), labels=list(range(1, 74))).fillna(73)
     post_view['current_views'] = post_view.groupby('post_id')['view_cnt'].transform('last')
     post_view['percent_new_views'] = (post_view['view_change'] / post_view['current_views']) * 100
-    return post_view.sort_values(by=['channel_name', 'post_datetime'], ascending=False)
+    return post_view.sort_values(by=['channel_id', 'post_datetime'], ascending=False)
 
 def combine_post_view_reaction_data(post_view, reacts):
     group_reacts = reacts.groupby(['post_id', 'reaction_type'])[['datetime', 'react_cnt']].last().reset_index()
