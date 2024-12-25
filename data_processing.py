@@ -57,7 +57,19 @@ def process_data(channels, posts, reactions, subscribers, views):
 
 def process_posts(posts, channels):
     posts = posts.merge(channels[['id', 'channel_name']].rename(columns={'id':'channel_id'}), on='channel_id', how='left')
-    posts['date'] = pd.to_datetime(posts.datetime).dt.date
+
+    if 'datetime' in posts.columns:
+        posts['date'] = pd.to_datetime(posts['datetime']).dt.date
+    else:
+        print("Warning: 'datetime' column not found in posts DataFrame.")
+        print("Posts DataFrame columns:", posts.columns)
+        # Обработка отсутствия столбца
+        # Например, вы можете использовать 'date' или другое значение по умолчанию
+        if 'date' in posts.columns:
+            posts['date'] = pd.to_datetime(posts['date']).dt.date
+        else:
+            posts['date'] = None  # Или какое-то значение по умолчанию
+
     posts['time'] = posts.datetime.str[10:]
     posts['cnt'] = posts.groupby(['channel_id', 'date'])['message_id'].transform('count')
     posts['hour'] = pd.to_datetime(posts.datetime).dt.hour
