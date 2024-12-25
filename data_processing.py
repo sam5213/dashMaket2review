@@ -12,7 +12,9 @@ def load_data():
     reactions = pd.read_csv(os.path.join(folder_path, file_list[2]))
     subscribers = pd.read_csv(os.path.join(folder_path, file_list[3]))
     views = pd.read_csv(os.path.join(folder_path, file_list[4]))
-    
+    print(posts.head())  # Вывод первых нескольких строк
+    print(posts.columns)  # Вывод названий столбцов
+
     return channels, posts, reactions, subscribers, views
 
 def process_data(channels, posts, reactions, subscribers, views):
@@ -44,11 +46,18 @@ def process_data(channels, posts, reactions, subscribers, views):
     }
 
 def process_posts(posts, channels):
-    posts = posts.merge(channels[['id', 'channel_name']].rename(columns={'id':'channel_id'}), on='channel_id', how='left')
-    posts['date'] = pd.to_datetime(posts.datetime).dt.date
-    posts['time'] = posts.datetime.str[10:]
-    posts['cnt'] = posts.groupby(['channel_id', 'date'])['message_id'].transform('count')
-    posts['hour'] = pd.to_datetime(posts.datetime).dt.hour
+    # Проверка наличия столбца 'datetime'
+    if 'datetime' in posts.columns:
+        posts = posts.merge(channels[['id', 'channel_name']].rename(columns={'id':'channel_id'}), on='channel_id', how='left')
+        posts['date'] = pd.to_datetime(posts.datetime).dt.date
+        posts['time'] = posts.datetime.str[10:]
+        posts['cnt'] = posts.groupby(['channel_id', 'date'])['message_id'].transform('count')
+        posts['hour'] = pd.to_datetime(posts.datetime).dt.hour
+    else:
+        print("Warning: 'datetime' column not found in posts DataFrame.")
+        # Обработка отсутствия столбца
+        posts['date'] = None  # или какое-то значение по умолчанию
+
     return posts[~posts.text.isnull() & (posts.text != 'Нет текста')].copy()
 
 def process_views(views):
