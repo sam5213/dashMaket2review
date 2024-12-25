@@ -80,7 +80,10 @@ def register_callbacks(app, data):
                                  name='7-day Moving Average'), row=2, col=1)
         
         fig.update_layout(height=600, title_text=f"Publication Trend for {channel}")
-        fig.write_html("mymaket.html")
+
+        # Save the figure as an HTML file
+        fig.write_html(f"publication_trend_{channel}.html")
+
         return fig
 
     @app.callback(
@@ -97,7 +100,10 @@ def register_callbacks(app, data):
         fig.add_trace(go.Bar(x=df['datetime'], y=df['subs_change'], name='Daily Change'), row=2, col=1)
         
         fig.update_layout(height=600, title_text=f"Subscriber Growth for {channel}")
-        fig.write_html("mymaket.html")
+
+        # Save the figure as an HTML file
+        fig.write_html(f"engagement_metrics_{channel}.html")
+
         return fig
 
     @app.callback(
@@ -110,7 +116,6 @@ def register_callbacks(app, data):
         
         fig = go.Figure(data=go.Heatmap(z=pivot.values, x=pivot.columns, y=pivot.index, colorscale='Viridis'))
         fig.update_layout(title=f'Publication Heatmap for {channel}', xaxis_title='Hour of Day', yaxis_title='Date')
-        fig.write_html("mymaket.html")
         return fig
 
     @app.callback(
@@ -131,7 +136,6 @@ def register_callbacks(app, data):
         fig = go.Figure()
         fig.add_trace(go.Bar(x=df_filtered['datetime'], y=df_filtered['subs_change'], name='Subscriber Change'))
         fig.update_layout(title=f'Subscriber Change for {channel}', xaxis_title='Date', yaxis_title='Change in Subscribers')
-        fig.write_html("mymaket.html")
         return fig
 
     @app.callback(
