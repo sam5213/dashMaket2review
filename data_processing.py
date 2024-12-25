@@ -69,7 +69,7 @@ def process_posts(posts, channels):
         # Например, вы можете использовать 'date' или другое значение по умолчанию
         if 'date' in posts.columns:
             posts['date'] = pd.to_datetime(posts['date']).dt.date
-            posts['time'] = posts['date'].dt.time.astype(str[10])
+            posts['time'] = pd.to_datetime(posts['date']).dt.time.astype(str[10:])
             posts['hour'] = pd.to_datetime(posts.date).dt.hour
         else:
             posts['date'] = None  # Или какое-то значение по умолчанию
