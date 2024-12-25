@@ -56,17 +56,11 @@ def process_data(channels, posts, reactions, subscribers, views):
     }
 
 def process_posts(posts, channels):
-    # Проверка наличия столбца 'datetime'
-    if 'datetime' in posts.columns:
-        posts = posts.merge(channels[['id', 'channel_name']].rename(columns={'id':'channel_id'}), on='channel_id', how='left')
-        posts['date'] = pd.to_datetime(posts.datetime).dt.date
-        posts['time'] = posts.datetime.str[10:]
-        posts['cnt'] = posts.groupby(['channel_id', 'date'])['message_id'].transform('count')
-        posts['hour'] = pd.to_datetime(posts.datetime).dt.hour
-    else:
-        print("Warning: 'datetime' column not found in posts DataFrame.")
-        # Обработка отсутствия столбца
-        posts['date'] = None  # или какое-то значение по умолчанию
+    posts = posts.merge(channels[['id', 'channel_name']].rename(columns={'id':'channel_id'}), on='channel_id', how='left')
+    posts['date'] = pd.to_datetime(posts.datetime).dt.date
+    posts['time'] = posts.datetime.str[10:]
+    posts['cnt'] = posts.groupby(['channel_id', 'date'])['message_id'].transform('count')
+    posts['hour'] = pd.to_datetime(posts.datetime).dt.hour
 
     return posts[~posts.text.isnull() & (posts.text != 'Нет текста')].copy()
 
@@ -106,8 +100,8 @@ def combine_post_view_data(posts, views):
     post_view = post_view.sort_values(by=['channel_id', 'post_id', 'datetime']).reset_index(drop=True)
     post_view['hours_diff'] = (pd.to_datetime(post_view.datetime) - pd.to_datetime(post_view.post_datetime)).dt.total_seconds() / 3600
     post_view['days_diff'] = post_view['hours_diff'] / 24
-    post_view['hours_diff'] = post_view['hours_diff'].apply(lambda x: math.ceil(x))
-    post_view['days_diff'] = post_view['days_diff'].apply(lambda x: math.ceil(x))
+    post_view['hours_diff'] = post_view['hours_diff'].apply(lambda x: math.ceil(x) if pd.notna(x) else x)
+    post_view['days_diff'] = post_view['days_diff'].apply(lambda x: math.ceil(x) if pd.notna(x) else x)
     post_view['hours_group'] = pd.cut(post_view['hours_diff'], bins=list(range(0, 74)), labels=list(range(1, 74))).fillna(73)
     post_view['current_views'] = post_view.groupby('post_id')['view_cnt'].transform('last')
     post_view['percent_new_views'] = (post_view['view_change'] / post_view['current_views']) * 100
