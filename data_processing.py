@@ -97,7 +97,7 @@ def process_reactions(reactions):
 
 def combine_post_view_data(posts, views):
     print("Posts DataFrame columns:", posts.columns)
-    print("Views DataFrame columns:", posts.views)
+    print("Views DataFrame columns:", views.columns)
     # Убедитесь, что используете существующие столбцы
     if 'channel_name' not in posts.columns:
         print("Warning: 'channel_name' column not found in posts DataFrame.")
