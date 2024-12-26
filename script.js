@@ -1,5 +1,6 @@
 async function launchCodespace() {
     document.getElementById('status').innerText = 'Идет создание Codespace...';
+    require('dotenv').config();
 
     const repoName = "dashMaket2review";
     const branch = "main";
