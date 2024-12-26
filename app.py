@@ -49,7 +49,7 @@ dell_words = stopwords_ru | predlogi | souzy | numbers | exclude
 
 
 # Указываем путь к папке с файлами
-folder_path = os.getcwd()
+folder_path = os.getcwd() + '/'
 
 # Получаем список файлов в папке
 file_list = sorted([f for f in os.listdir(folder_path) if f.endswith('.csv')])
