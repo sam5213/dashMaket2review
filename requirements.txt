@@ -118,5 +118,9 @@ werkzeug==3.0.6
 zipp==3.21.0
     # via importlib-metadata
 
+wordcloud==1.9.4
+colorlover==0.3.0
+IPython==8.30.0
+
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
