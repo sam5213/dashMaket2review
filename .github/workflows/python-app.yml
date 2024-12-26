@@ -26,4 +26,3 @@ jobs:
     - name: Run Dash app
       run: |
         nohup python app.py &
-        node server.js
