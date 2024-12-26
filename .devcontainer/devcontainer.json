@@ -1,0 +1,7 @@
+{
+    "name": "My Development Environment",
+    "dockerFile": "Dockerfile",
+    "settings": {},
+    "extensions": [],
+    "postCreateCommand": "bash ./.devcontainer/post_create.sh"
+}
