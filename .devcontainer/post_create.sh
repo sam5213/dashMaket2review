@@ -2,7 +2,7 @@
 
 # Выполняем команду из вашего файла YAML
 echo "Выполнение команды..."
-nohup python app.py &
+node server.js
 
 # Получаем URL Codespace
 codespace_url=$(codespace info --url)
