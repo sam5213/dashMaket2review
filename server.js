@@ -1,18 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8016;
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/create-codespace', async (req, res) => {
     const { repoName, branch, repoId } = req.body;
+    const domurl = "https://animated-space-waffle-5v4qp4465p2wjj-8064.app.github.dev"
 
     try {
-        const response = await axios.post('https://api.github.com/sam5213/codespaces', {
+        const response = await axios.post(domurl + '/codespaces', {
             repository: {
                 id: repoId,
                 default_branch: branch,
@@ -30,6 +33,7 @@ app.post('/create-codespace', async (req, res) => {
 
         res.json({ success: true, url: response.data.html_url });
     } catch (error) {
+        console.error(error); // Логирование ошибки
         res.status(500).json({ success: false, message: error.message });
     }
 });

@@ -4,7 +4,7 @@ async function launchCodespace() {
 
     const repoName = "dashMaket2review";
     const branch = "main";
-    const token = process.env.TOKEN;
+    const token = process.env.DASH_TOKEN;
     
     try {
         const response = await fetch('https://api.github.com/sam5213/codespaces', {
