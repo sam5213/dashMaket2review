@@ -128,8 +128,7 @@ def create_table(post_view, max_days, channel):
         
         row_data = [
             html.Td(f"{row['post_id']}"),
-            html.Td(f"{datetime.datetime.strptime(row['post_datetime'], "%Y-%m-%d %H:%M:%S.%f").strftime("%b %d, %Y")}", style={"text-align": "center"}),
-            html.Td(current_views)
+            html.Td(f"{datetime.datetime.strptime(row['post_datetime'], '%Y-%m-%d %H:%M:%S.%f').strftime('%b %d, %Y')}", style={"text-align": "center"}),            html.Td(current_views)
         ]
         for day in range(1, max_days+1):
             if day <= len(view_change):
