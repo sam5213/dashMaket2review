@@ -8,6 +8,34 @@
     <h1>Запустить дашборд</h1>
     <button onclick="launchCodespace()">Запуск</button>
     <div id="status"></div>
-    <script src="script.js"></script>
+    <script>
+        async function launchCodespace() {
+            document.getElementById('status').innerText = 'Идет создание Codespace...';
+
+            const repoName = "dashMaket2review";
+            const branch = "main";
+            const repoId = "908314405";
+
+            try {
+                const response = await fetch('/create-codespace', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ repoName, branch, repoId })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    window.location.href = result.url;
+                } else {
+                    document.getElementById('status').innerText = result.message;
+                }
+            } catch (error) {
+                document.getElementById('status').innerText = `Ошибка при создании Codespace: ${error.message}`;
+            }
+        }
+    </script>
 </body>
 </html>
