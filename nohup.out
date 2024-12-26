@@ -29,3 +29,218 @@ Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning: 'datetime' column not found in posts DataFrame.
+Posts DataFrame columns: Index(['id', 'channel_id', 'message_id', 'text', 'date', 'channel_name'], dtype='object')
+Posts DataFrame columns: Index(['id', 'channel_id', 'message_id', 'text', 'date', 'channel_name',
+       'time', 'hour', 'cnt'],
+      dtype='object')
+Views DataFrame columns: Index(['id', 'post_id', 'datetime', 'view_cnt', 'date', 'view_change'], dtype='object')
+Reacts DataFrame columns: Index(['id', 'post_id', 'datetime', 'reaction_type', 'react_cnt', 'date'], dtype='object')
+Post_view DataFrame columns: Index(['channel_id', 'post_id', 'post_datetime', 'datetime', 'view_cnt',
+       'view_change', 'hours_diff', 'days_diff', 'hours_group',
+       'current_views', 'percent_new_views'],
+      dtype='object')
+Dash is running on http://127.0.0.1:8050/
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning: 'datetime' column not found in posts DataFrame.
+Posts DataFrame columns: Index(['id', 'channel_id', 'message_id', 'text', 'date', 'channel_name'], dtype='object')
+Posts DataFrame columns: Index(['id', 'channel_id', 'message_id', 'text', 'date', 'channel_name',
+       'time', 'hour', 'cnt'],
+      dtype='object')
+Views DataFrame columns: Index(['id', 'post_id', 'datetime', 'view_cnt', 'date', 'view_change'], dtype='object')
+Reacts DataFrame columns: Index(['id', 'post_id', 'datetime', 'reaction_type', 'react_cnt', 'date'], dtype='object')
+Post_view DataFrame columns: Index(['channel_id', 'post_id', 'post_datetime', 'datetime', 'view_cnt',
+       'view_change', 'hours_diff', 'days_diff', 'hours_group',
+       'current_views', 'percent_new_views'],
+      dtype='object')
+Dash is running on http://127.0.0.1:8050/
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/dashMaket2review/callbacks.py:128: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning: 'datetime' column not found in posts DataFrame.
+Posts DataFrame columns: Index(['id', 'channel_id', 'message_id', 'text', 'date', 'channel_name'], dtype='object')
+Posts DataFrame columns: Index(['id', 'channel_id', 'message_id', 'text', 'date', 'channel_name',
+       'time', 'hour', 'cnt'],
+      dtype='object')
+Views DataFrame columns: Index(['id', 'post_id', 'datetime', 'view_cnt', 'date', 'view_change'], dtype='object')
+Reacts DataFrame columns: Index(['id', 'post_id', 'datetime', 'reaction_type', 'react_cnt', 'date'], dtype='object')
+Post_view DataFrame columns: Index(['channel_id', 'post_id', 'post_datetime', 'datetime', 'view_cnt',
+       'view_change', 'hours_diff', 'days_diff', 'hours_group',
+       'current_views', 'percent_new_views'],
+      dtype='object')
+[nltk_data] Downloading package brown to /home/codespace/nltk_data...
+[nltk_data]   Unzipping corpora/brown.zip.
+Traceback (most recent call last):
+  File "/workspaces/dashMaket2review/app.py", line 29, in <module>
+    from wordcloud import WordCloud
+ModuleNotFoundError: No module named 'wordcloud'
